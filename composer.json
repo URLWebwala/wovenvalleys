@@ -5,7 +5,7 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "^7.3|^8.0|^8.1|^8.2|^8.3",
         "bumbummen99/shoppingcart": "^4.0",
         "cviebrock/eloquent-sluggable": "^8.0",
         "doctrine/dbal": "^3.3",
@@ -20,7 +20,7 @@
         "mews/purifier": "^3.3",
         "mollie/laravel-mollie": "^2.20",
         "omnipay/mollie": "^5.5",
-        "unicodeveloper/laravel-paystack": "^1.0",
+        "php-http/guzzle7-adapter": "^1.1",
         "razorpay/razorpay": "2.*",
         "realrashid/sweet-alert": "^4.1",
         "spatie/laravel-cookie-consent": "^2.12",
@@ -28,6 +28,7 @@
         "spatie/laravel-sitemap": "^5.8.0",
         "stripe/stripe-php": "^7.110",
         "tsakib360/zai-installer": "^1.2",
+        "unicodeveloper/laravel-paystack": "^1.0",
         "yajra/laravel-datatables-oracle": "~9.0"
     },
     "require-dev": {
@@ -77,7 +78,13 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "php-http/discovery": true
+        },
+        "platform": {
+            "php": "8.3.30"
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true
