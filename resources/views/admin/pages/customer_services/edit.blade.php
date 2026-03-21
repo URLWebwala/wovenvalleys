@@ -24,7 +24,7 @@
                                 <input type="hidden" name="id" value="{{$edit->id}}">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">{{ __('Description')}}</label>
-                                    <textarea name="description" id="description" class="form-control summernote">{{$edit->Description}}</textarea>
+                                    <textarea name="description" id="description" class="form-control summernote">{{$edit->en_description}}</textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary">{{ __('Advertise Update')}}</button>
                             </form>

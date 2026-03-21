@@ -23,32 +23,38 @@ class CustomerServiceController extends Controller
                     return $btn;
                 })
                 ->editColumn('Location', function ($data) {
-                    return $data->Location;
+                    return $data->location;
                 })
                 ->editColumn('Description', function ($data) {
-                    return Str::limit($data->Description, 350);
+                    return Str::limit($data->en_description, 350);
                 })
                 ->rawColumns(['action', 'Description', 'Location'])
                 ->make(true);
         }
-        return view('admin.pages.customer_services.index');
+        $menu = 'cms';
+        $submenu = 'customer_services';
+        return view('admin.pages.customer_services.index', compact('menu', 'submenu'));
     }
 
     public function customerServiceEdit($id)
     {
         $edit = CutomerService::where('id', $id)->first();
-        return view('admin.pages.customer_services.edit', compact('edit'));
+        $menu = 'cms';
+        $submenu = 'customer_services';
+        return view('admin.pages.customer_services.edit', compact('edit', 'menu', 'submenu'));
     }
 
     public function customerServiceUpdate(Request $request)
     {
         $id = $request->id;
         $blog = CutomerService::where('id', $id)->update([
-            'Description' => $request->description,
+            'en_description' => $request->description,
         ]);
+
         if ($blog) {
             return redirect()->route('admin.customer.services')->with('success', __('Successfully Updated !'));
         }
+
         return redirect()->route('admin.customer.services')->with('toast_danger', __('Something is wrong !'));
     }
 

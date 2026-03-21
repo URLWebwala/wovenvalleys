@@ -258,8 +258,12 @@
                             <span>{{ __('Subscribers') }}</span>
                         </a>
                     </li>
-                </ul>
-            </li>
+                    <li class="{{ isset($submenu) && $submenu == 'customer_services' ? 'mm-active' : '' }}">
+                        <a href="{{ route('admin.customer.services') }}">
+                            <i class="fa fa-circle"></i>
+                            <span>{{ __('Customer Services') }}</span>
+                        </a>
+                    </li>
         @endcanany
         @canany(['user-list'])
             <li class="{{ isset($menu) && $menu == 'users' ? 'mm-active' : '' }}">
